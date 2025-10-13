@@ -1,5 +1,6 @@
 package com.example.HomeLibrary.model.dto;
 
+import com.example.HomeLibrary.model.entities.ReadingStatus;
 import lombok.Builder;
 import lombok.Data;
 
@@ -10,7 +11,7 @@ public class BookResponseDto {
     private String title;
     private String author;
     private String genre;
-    private String status;
+    private ReadingStatus status;
     private Integer rating;
     private String seriesName;
 }

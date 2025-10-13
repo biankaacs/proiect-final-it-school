@@ -3,12 +3,13 @@ package com.example.HomeLibrary.model.mapper;
 import com.example.HomeLibrary.model.dto.BookRequestDto;
 import com.example.HomeLibrary.model.dto.BookResponseDto;
 import com.example.HomeLibrary.model.entities.Book;
+import com.example.HomeLibrary.model.entities.ReadingStatus;
 import com.example.HomeLibrary.model.entities.Series;
 
 public class BookMapper {
 
-    //add hozza Series valtozo
     public static Book toEntity(BookRequestDto dto) {
+        Series series = new Series();
         return Book.builder()
                 .title(dto.getTitle())
                 .author(dto.getAuthor())
@@ -18,7 +19,7 @@ public class BookMapper {
                 .status(dto.getStatus())
                 .rating(dto.getRating())
                 .notes(dto.getNotes())
-                .series(null) //hasznald a series valtozot
+                .series(series)
                 .build();
     }
 
@@ -28,7 +29,7 @@ public class BookMapper {
                 .title(book.getTitle())
                 .author(book.getAuthor())
                 .genre(book.getGenre())
-                .status(book.getStatus())
+                .status(ReadingStatus.valueOf(String.valueOf(book.getStatus())))
                 .rating(book.getRating())
                 .seriesName(book.getSeries() != null ? book.getSeries().getName() : null)
                 .build();

@@ -1,5 +1,6 @@
 package com.example.HomeLibrary.service;
 
+import com.example.HomeLibrary.model.entities.WishlistStatus;
 import com.example.HomeLibrary.model.mapper.WishlistMapper;
 import com.example.HomeLibrary.model.dto.WishlistRequestDto;
 import com.example.HomeLibrary.model.dto.WishlistResponseDto;
@@ -33,7 +34,7 @@ public class WishlistService {
         WishlistItem item = wishlistRepository.findById(id).orElseThrow();
         item.setTitle(dto.getTitle());
         item.setAuthor(dto.getAuthor());
-        item.setStatus(dto.getStatus());
+        item.setStatus(WishlistStatus.valueOf(String.valueOf(dto.getStatus())));
         WishlistItem updated = wishlistRepository.save(item);
         return WishlistMapper.toDto(updated);
     }

@@ -25,7 +25,8 @@ public class Book {
     private String genre;
     private String description;
 
-    private String status; // "de citit", "în curs de citire", "citită" //Hasznald az enumut!
+    @Enumerated(EnumType.STRING) // így a PostgreSQL tárolja a státuszt szövegként, nem számként.
+    private ReadingStatus status; // "de citit", "în curs de citire", "citită"
 
     private Integer rating; // 1-5
     private String notes;

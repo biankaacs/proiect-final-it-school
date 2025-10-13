@@ -3,6 +3,7 @@ package com.example.HomeLibrary.model.mapper;
 import com.example.HomeLibrary.model.dto.WishlistRequestDto;
 import com.example.HomeLibrary.model.dto.WishlistResponseDto;
 import com.example.HomeLibrary.model.entities.WishlistItem;
+import com.example.HomeLibrary.model.entities.WishlistStatus;
 
 public class WishlistMapper {
 
@@ -10,7 +11,7 @@ public class WishlistMapper {
         return WishlistItem.builder()
                 .title(dto.getTitle())
                 .author(dto.getAuthor())
-                .status(dto.getStatus())
+                .status(WishlistStatus.valueOf(String.valueOf(dto.getStatus())))
                 .build();
     }
 
@@ -19,7 +20,7 @@ public class WishlistMapper {
                 .id(item.getId())
                 .title(item.getTitle())
                 .author(item.getAuthor())
-                .status(item.getStatus())
+                .status(WishlistStatus.valueOf(String.valueOf(item.getStatus())))
                 .build();
     }
 }

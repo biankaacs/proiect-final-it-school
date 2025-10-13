@@ -24,4 +24,7 @@ public class Series {
 
     @OneToMany(mappedBy = "series", cascade = CascadeType.ALL)
     private List<Book> books;
+
+    @OneToMany(mappedBy = "series", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<WishlistItem> wishlistItems;
 }
