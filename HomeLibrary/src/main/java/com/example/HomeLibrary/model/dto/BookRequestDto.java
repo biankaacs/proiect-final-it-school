@@ -1,6 +1,6 @@
 package com.example.HomeLibrary.model.dto;
 
-import com.example.HomeLibrary.model.entities.ReadingStatus;
+import com.example.HomeLibrary.model.enums.ReadingStatus;
 import lombok.Data;
 
 @Data

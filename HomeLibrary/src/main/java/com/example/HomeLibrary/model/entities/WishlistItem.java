@@ -1,6 +1,7 @@
 package com.example.HomeLibrary.model.entities;
 
 
+import com.example.HomeLibrary.model.enums.WishlistStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

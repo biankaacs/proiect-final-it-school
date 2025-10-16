@@ -3,7 +3,7 @@ package com.example.HomeLibrary.model.mapper;
 import com.example.HomeLibrary.model.dto.BookRequestDto;
 import com.example.HomeLibrary.model.dto.BookResponseDto;
 import com.example.HomeLibrary.model.entities.Book;
-import com.example.HomeLibrary.model.entities.ReadingStatus;
+import com.example.HomeLibrary.model.enums.ReadingStatus;
 import com.example.HomeLibrary.model.entities.Series;
 
 public class BookMapper {

@@ -4,6 +4,7 @@ import com.example.HomeLibrary.model.dto.BookRequestDto;
 import com.example.HomeLibrary.model.dto.BookResponseDto;
 import com.example.HomeLibrary.service.BookService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,4 +45,11 @@ public class BookController {
     public void deleteBook(@PathVariable Long id) {
         bookService.deleteBook(id);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<BookResponseDto> updateBook(@PathVariable Long id, @RequestBody BookRequestDto dto) {
+        BookResponseDto updatedBook = bookService.updateBook(id, dto);
+        return ResponseEntity.ok(updatedBook);
+    }
+
 }

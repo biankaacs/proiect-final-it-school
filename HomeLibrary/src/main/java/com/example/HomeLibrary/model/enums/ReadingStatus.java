@@ -1,4 +1,4 @@
-package com.example.HomeLibrary.model.entities;
+package com.example.HomeLibrary.model.enums;
 
 public enum ReadingStatus {
     READ,

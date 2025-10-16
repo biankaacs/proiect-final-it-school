@@ -1,6 +1,6 @@
 package com.example.HomeLibrary.service;
 
-import com.example.HomeLibrary.model.entities.WishlistStatus;
+import com.example.HomeLibrary.model.enums.WishlistStatus;
 import com.example.HomeLibrary.model.mapper.WishlistMapper;
 import com.example.HomeLibrary.model.dto.WishlistRequestDto;
 import com.example.HomeLibrary.model.dto.WishlistResponseDto;

@@ -1,7 +1,6 @@
 package com.example.HomeLibrary.service;
 
-import com.example.HomeLibrary.model.entities.ReadingStatus;
-import com.example.HomeLibrary.model.entities.Series;
+import com.example.HomeLibrary.model.enums.ReadingStatus;
 import com.example.HomeLibrary.model.mapper.BookMapper;
 import com.example.HomeLibrary.model.dto.BookRequestDto;
 import com.example.HomeLibrary.model.dto.BookResponseDto;
@@ -9,7 +8,6 @@ import com.example.HomeLibrary.model.entities.Book;
 import com.example.HomeLibrary.repo.BookRepository;
 import com.example.HomeLibrary.repo.SeriesRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -39,13 +37,24 @@ public class BookService {
     }
 
     public BookResponseDto updateBook(Long id, BookRequestDto dto) {
-        Book book = bookRepository.findById(id).orElseThrow();
+        Book book = bookRepository.findById(id).orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
+
         book.setTitle(dto.getTitle());
         book.setAuthor(dto.getAuthor());
         book.setYear(dto.getYear());
         book.setGenre(dto.getGenre());
         book.setDescription(dto.getDescription());
-        book.setStatus(ReadingStatus.valueOf(String.valueOf(dto.getStatus())));
+
+        if (dto.getStatus() != null) {
+            book.setStatus(dto.getStatus());
+        }
+
+        if (dto.getSeriesId() != null) {
+            var series = seriesRepository.findById(dto.getSeriesId())
+                    .orElseThrow(() -> new RuntimeException("Series not found with id: " + dto.getSeriesId()));
+            book.setSeries(series);
+        }
+
         Book updated = bookRepository.save(book);
         return BookMapper.toDto(updated);
     }

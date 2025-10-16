@@ -3,7 +3,7 @@ package com.example.HomeLibrary.service;
 import com.example.HomeLibrary.model.entities.Book;
 import com.example.HomeLibrary.model.entities.Series;
 import com.example.HomeLibrary.model.entities.WishlistItem;
-import com.example.HomeLibrary.model.entities.WishlistStatus;
+import com.example.HomeLibrary.model.enums.WishlistStatus;
 import com.example.HomeLibrary.repo.BookRepository;
 import com.example.HomeLibrary.repo.SeriesRepository;
 import com.example.HomeLibrary.repo.WishlistRepository;

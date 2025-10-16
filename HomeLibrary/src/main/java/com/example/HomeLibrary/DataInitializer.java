@@ -1,6 +1,8 @@
 package com.example.HomeLibrary;
 
 import com.example.HomeLibrary.model.entities.*;
+import com.example.HomeLibrary.model.enums.ReadingStatus;
+import com.example.HomeLibrary.model.enums.WishlistStatus;
 import com.example.HomeLibrary.repo.BookRepository;
 import com.example.HomeLibrary.repo.SeriesRepository;
 import com.example.HomeLibrary.repo.WishlistRepository;

@@ -3,7 +3,7 @@ package com.example.HomeLibrary.model.mapper;
 import com.example.HomeLibrary.model.dto.WishlistRequestDto;
 import com.example.HomeLibrary.model.dto.WishlistResponseDto;
 import com.example.HomeLibrary.model.entities.WishlistItem;
-import com.example.HomeLibrary.model.entities.WishlistStatus;
+import com.example.HomeLibrary.model.enums.WishlistStatus;
 
 public class WishlistMapper {
 
