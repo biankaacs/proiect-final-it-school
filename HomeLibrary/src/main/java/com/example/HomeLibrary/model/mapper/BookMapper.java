@@ -19,7 +19,6 @@ public class BookMapper {
                 .status(dto.getStatus())
                 .rating(dto.getRating())
                 .notes(dto.getNotes())
-                .series(series)
                 .build();
     }
 
@@ -29,8 +28,10 @@ public class BookMapper {
                 .title(book.getTitle())
                 .author(book.getAuthor())
                 .genre(book.getGenre())
-                .status(ReadingStatus.valueOf(String.valueOf(book.getStatus())))
+                .status(book.getStatus())
                 .rating(book.getRating())
+                .notes(book.getNotes())
+                .year(book.getYear())
                 .seriesName(book.getSeries() != null ? book.getSeries().getName() : null)
                 .build();
     }

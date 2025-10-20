@@ -44,6 +44,8 @@ public class BookService {
         book.setYear(dto.getYear());
         book.setGenre(dto.getGenre());
         book.setDescription(dto.getDescription());
+        book.setRating(dto.getRating());
+        book.setNotes(dto.getNotes());
 
         if (dto.getStatus() != null) {
             book.setStatus(dto.getStatus());

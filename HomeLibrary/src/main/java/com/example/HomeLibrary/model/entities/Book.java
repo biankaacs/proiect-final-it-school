@@ -26,10 +26,10 @@ public class Book {
     private String genre;
     private String description;
 
-    @Enumerated(EnumType.STRING) // így a PostgreSQL tárolja a státuszt szövegként, nem számként.
-    private ReadingStatus status; // "de citit", "în curs de citire", "citită"
+    @Enumerated(EnumType.STRING)
+    private ReadingStatus status;
 
-    private Integer rating; // 1-5
+    private Integer rating;
     private String notes;
 
     @ManyToOne

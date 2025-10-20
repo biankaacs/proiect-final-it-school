@@ -13,5 +13,7 @@ public class BookResponseDto {
     private String genre;
     private ReadingStatus status;
     private Integer rating;
+    private String notes;
+    private Integer year;
     private String seriesName;
 }

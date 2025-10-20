@@ -6,6 +6,8 @@ import com.example.HomeLibrary.model.enums.WishlistStatus;
 import com.example.HomeLibrary.repo.BookRepository;
 import com.example.HomeLibrary.repo.SeriesRepository;
 import com.example.HomeLibrary.repo.WishlistRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -16,8 +18,10 @@ public class DataInitializer implements CommandLineRunner {
     private final BookRepository bookRepository;
     private final SeriesRepository seriesRepository;
     private final WishlistRepository wishlistRepository;
+    private final EntityManager entityManager;
 
     @Override
+    @Transactional
     public void run(String... args) throws Exception {
 
         // Delete all existing books and series
@@ -26,6 +30,10 @@ public class DataInitializer implements CommandLineRunner {
         seriesRepository.deleteAll();
 
         System.out.println("All existing books and series have been deleted.");
+
+        entityManager.createNativeQuery("ALTER SEQUENCE book_id_seq RESTART WITH 1").executeUpdate();
+        entityManager.createNativeQuery("ALTER SEQUENCE series_id_seq RESTART WITH 1").executeUpdate();
+        entityManager.createNativeQuery("ALTER SEQUENCE wishlist_item_id_seq RESTART WITH 1").executeUpdate();
 
         // Create Dune series
         Series duneSeries = Series.builder()
