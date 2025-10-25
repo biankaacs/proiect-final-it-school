@@ -11,7 +11,7 @@ public class WishlistMapper {
         return WishlistItem.builder()
                 .title(dto.getTitle())
                 .author(dto.getAuthor())
-                .status(WishlistStatus.valueOf(String.valueOf(dto.getStatus())))
+                .status(dto.getStatus())
                 .build();
     }
 
@@ -20,7 +20,12 @@ public class WishlistMapper {
                 .id(item.getId())
                 .title(item.getTitle())
                 .author(item.getAuthor())
-                .status(WishlistStatus.valueOf(String.valueOf(item.getStatus())))
+                .year(item.getYear() != null ? item.getYear() : null)
+                .genre(item.getGenre())
+                .description(item.getDescription())
+                .status(item.getStatus())
+                .notes(item.getNotes() != null ? item.getNotes() : "")
+                .seriesName(item.getSeries() != null ? item.getSeries().getName() : null)
                 .build();
     }
 }

@@ -22,7 +22,7 @@ public class Book {
 
     private String title;
     private String author;
-    private int year;
+    private Integer year;
     private String genre;
     private String description;
 

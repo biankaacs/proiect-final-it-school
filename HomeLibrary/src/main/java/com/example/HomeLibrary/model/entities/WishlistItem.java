@@ -20,11 +20,14 @@ public class WishlistItem {
 
     private String title;
     private String author;
+    private Integer year;
     private String genre;
     private String description;
 
     @Enumerated(EnumType.STRING)
-    private WishlistStatus status; // "de cumpărat", "de împrumutat", "aștept lansarea"
+    private WishlistStatus status;
+
+    private String notes;
 
     @ManyToOne
     private Series series;

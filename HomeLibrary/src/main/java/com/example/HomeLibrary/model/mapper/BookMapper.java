@@ -28,6 +28,7 @@ public class BookMapper {
                 .title(book.getTitle())
                 .author(book.getAuthor())
                 .genre(book.getGenre())
+                .description(book.getDescription())
                 .status(book.getStatus())
                 .rating(book.getRating())
                 .notes(book.getNotes())

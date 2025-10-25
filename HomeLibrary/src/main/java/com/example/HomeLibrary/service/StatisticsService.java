@@ -3,6 +3,7 @@ package com.example.HomeLibrary.service;
 import com.example.HomeLibrary.model.entities.Book;
 import com.example.HomeLibrary.model.entities.Series;
 import com.example.HomeLibrary.model.entities.WishlistItem;
+import com.example.HomeLibrary.model.enums.ReadingStatus;
 import com.example.HomeLibrary.model.enums.WishlistStatus;
 import com.example.HomeLibrary.repo.BookRepository;
 import com.example.HomeLibrary.repo.SeriesRepository;
@@ -32,9 +33,9 @@ public class StatisticsService {
 
         // Breakdown by book status
         stats.put("totalBooks", books.size());
-        stats.put("booksRead", books.stream().filter(b -> "read".equalsIgnoreCase(String.valueOf(b.getStatus()))).count());
-        stats.put("booksReading", books.stream().filter(b -> "currently reading".equalsIgnoreCase(String.valueOf(b.getStatus()))).count());
-        stats.put("booksToRead", books.stream().filter(b -> "to read".equalsIgnoreCase(String.valueOf(b.getStatus()))).count());
+        stats.put("booksRead", books.stream().filter(b -> b.getStatus() == ReadingStatus.READ).count());
+        stats.put("booksReading", books.stream().filter(b -> b.getStatus() == ReadingStatus.CURRENTLY_READING).count());
+        stats.put("booksToRead", books.stream().filter(b -> b.getStatus() == ReadingStatus.TO_READ).count());
         stats.put("wishlistCount", wishlist.size());
         stats.put("seriesCount", seriesList.size());
 
